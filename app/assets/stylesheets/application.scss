@@ -56,6 +56,20 @@
 //
 
 //
+// Utilities
+//
+
+// Prepend classes
+@for $i from 1 through 6 {
+  .prepend-#{$i} { margin-top: 10px * $i; }
+}
+
+// Append classes
+@for $i from 1 through 6 {
+  .append-#{$i} { margin-bottom: 10px * $i; }
+}
+
+//
 // Base
 //
 
@@ -116,4 +130,38 @@ ul, ol {
 
 .landing-subheading {
   margin-top: 0;
+}
+
+//
+// Search
+//
+
+.search-heading {
+  margin-bottom: 10px;
+}
+
+.search-subheading {
+  margin-bottom: 10px;
+}
+
+.search-results-container {
+
+}
+
+.search-result {
+  @extend .row;
+  @extend .append-3;
+}
+
+.search-result .name {
+  margin-bottom: 5px;
+}
+
+.search-result .pills {
+  margin-bottom: 5px;
+}
+
+.search-result .location {
+  color: #999;
+  font-size: 80%;
 }
