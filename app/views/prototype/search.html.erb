@@ -19,22 +19,20 @@
 </div>
 
 <% content_for :javascripts do %>
-  <%= javascript_include_tag 'prototype' %>
-
   <script id="search-result" type="text/x-handlebars-template" charset="utf-8">
-    {{#each searchResults}}
+    {{#each users}}
       <div class="search-result">
         <div class="large-1 columns">
           <img src="http://placehold.it/48x48" />
         </div>
         <div class="large-8 columns">
-          <div class="name">Ronnie Harrison</div>
+          <div class="name">{{name}}</div>
           <div class="pills">
-            <span class="label secondary">JavaScript</span>
-            <span class="label secondary">Backbone</span>
-            <span class="label secondary">jQuery</span>
+            {{#each topics}}
+            <span class="label secondary">{{this}}</span>
+            {{/each}}
           </div>
-          <div class="location">Toronto</div>
+          <div class="location">{{location}}</div>
         </div>
         <div class="large-2 columns">
           <a class="button small">Request to Pair</a>

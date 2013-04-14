@@ -56,6 +56,11 @@
 //
 
 //
+// HackerHero Component variables
+//
+$onlineNowWidth: 205px;
+
+//
 // Utilities
 //
 
@@ -72,6 +77,13 @@
 //
 // Base
 //
+
+@media #{$small} {
+  // Shift the content over to make room for online-now
+  .global-content-container {
+    padding-right: $onlineNowWidth;
+  }
+}
 
 .full-width {
   max-width: none;
@@ -90,6 +102,13 @@ ul, ol {
 .header-container {
   @extend .full-width;
   background-color: $purple;
+}
+
+@media #{$small} {
+  // Shift the header over to make room for online-now
+  .header-container {
+    padding-right: $onlineNowWidth;
+  }
 }
 
 .header {
@@ -164,4 +183,51 @@ ul, ol {
 .search-result .location {
   color: #999;
   font-size: 80%;
+}
+
+//
+// Online now
+//
+
+.online-now {
+  display: block;
+  position: fixed;
+  width: 205px;
+  height: 100%;
+  top: 0;
+  right: 0;
+
+  background-color: #eee;
+  padding: 10px 0 0 5px;
+}
+
+.online-now-row {
+  @include clearfix; 
+  margin-bottom: 15px;
+}
+
+.online-now-row-left {
+  img {
+    float: left;
+  }
+}
+
+.online-now-row-right {
+  color: #666;
+  font-size: 80%;
+  overflow: hidden;
+
+  .name,
+  .pills-text {
+    @include truncate(ellipsis, nowrap);
+    margin-left: 10px;
+  }
+
+  i {
+    color: $green;
+    float: right;
+    font-size: 10px;
+    position: relative;
+    top: 4px;
+  }
 }

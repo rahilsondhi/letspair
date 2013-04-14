@@ -1,0 +1,27 @@
+<div class="online-now hide-for-small">
+</div>
+
+<%= content_for :javascripts do %>
+  <script id="online-now-row" type="text/x-handlebars-template" charset="utf-8">
+    {{#each users}}
+      <div class="online-now-row">
+        <div class="online-now-row-left">
+          <img src="http://placehold.it/24x24" />
+        </div>
+
+        <div class="online-now-row-right">
+          <div class="online-now-row-status">
+            <i class="icon-circle"></i>
+          </div>  
+
+          <div class="name">{{name}}</div>
+          <div class="pills-text">
+            {{#each topics}}
+            <small>{{this}}</small>
+            {{/each}}
+          </div>
+        </div>      
+      </div>
+    {{/each}}
+  </script>
+<% end %>

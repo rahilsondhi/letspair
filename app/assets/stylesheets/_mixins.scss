@@ -1,4 +1,19 @@
+//
+// Mixins
+//
+
+// Box shadow
 @mixin box-shadow($shadow) {
   -webkit-box-shadow: $shadow;
   box-shadow: $shadow;
+}
+
+// Truncate
+// Overflow: clip or ellipsis
+// Whitespace: nowrap or normal
+@mixin truncate($overflow, $whitespace) {
+   overflow: hidden;
+   word-wrap: normal;
+   text-overflow: $overflow;
+   white-space: $whitespace;
 }

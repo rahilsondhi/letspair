@@ -15,7 +15,10 @@
 </head>
 <body>
   <%= render 'shared/header' %>
-  <%= yield %>
+  <div class="global-content-container">
+    <%= yield %>
+  </div>
+  <%= render 'shared/online_now' %>
   
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' %>
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js' %>
@@ -26,6 +29,7 @@
   <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/backbone.marionette/1.0.1-bundled/backbone.marionette.min.js' %>
   <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.0/backbone.localStorage-min.js' %>
   <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/backbone.validation/0.7.1/backbone-validation-min.js' %>
+  <%= javascript_include_tag 'prototype' %>
   <%= javascript_include_tag 'application' %>
   <%= yield :javascripts %>
 </body>

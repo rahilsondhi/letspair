@@ -1,9 +1,9 @@
 #= require handlebars
 
 data = {}
-data.searchResults = [
+data.users = [
   {
-    name: 'Ronnie Harrison'
+    name: 'Ronnie Harrison Middle And Last Long Name'
     topics: ['JavaScript', 'Backbone', 'jQuery']
     location: 'Toronto'
   }
@@ -31,3 +31,4 @@ data.searchResults = [
 
 $ ->
   if $('.search-results-container').length > 0 then $('.search-results-container').append Handlebars.compile($('#search-result').html())(data)
+  if $('.online-now').length > 0 then $('.online-now').append Handlebars.compile($('#online-now-row').html())(data)
