@@ -24,4 +24,9 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller' # This is for better_errors
   gem 'heroku_san'
+
+  # For prototyping
+  gem 'guard'
+  gem 'guard-livereload'
+  gem 'rb-fsevent'
 end
