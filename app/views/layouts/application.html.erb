@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hackerhero</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title>HackerHero &mdash; Find a pair programming partner</title>
+  <%= stylesheet_link_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
-
+  <%= yield %>
+  
+  <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' %>
+  <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js' %>
+  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/foundation/4.1.2/js/foundation.min.js' %>
+  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.js' %>
+  <%= javascript_include_tag 'application' %>
 </body>
 </html>

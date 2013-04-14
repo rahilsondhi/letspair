@@ -17,11 +17,11 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.2'
   gem 'uglifier', '~> 1.2.7'
   gem 'handlebars_assets', '~> 0.6.4'
-  gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass' # We want the latest version of bootstrap so we're always up to date
-  gem 'select2-rails', '~> 3.2.1'
+  gem 'zurb-foundation', github: 'zurb/foundation'
 end
 
 group :development do
   gem 'better_errors'
+  gem 'binding_of_caller' # This is for better_errors
   gem 'heroku_san'
 end
