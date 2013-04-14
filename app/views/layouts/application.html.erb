@@ -1,12 +1,17 @@
 <!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <html>
 <head>
-  <title>HackerHero &mdash; Find a pair programming partner</title>
-  <%= stylesheet_link_tag 'application' %>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
   <%= csrf_meta_tags %>
+  <title>HackerHero &mdash; Find a pair programming partner</title>
+  <%= stylesheet_link_tag 'zurb-foundation' %>
+  <%= stylesheet_link_tag 'application' %>  
+  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js' %>
 </head>
 <body>
-
   <%= yield %>
   
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' %>
