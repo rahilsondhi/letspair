@@ -1,0 +1,24 @@
+//
+// Base
+//
+
+@media #{$small} {
+  // Shift the content over to make room for online-now
+  .global-content-container {
+    padding-right: $onlineNowWidth;
+  }
+}
+
+.full-width {
+  max-width: none;
+}
+
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.noscroll {
+  overflow-y: hidden !important;
+}

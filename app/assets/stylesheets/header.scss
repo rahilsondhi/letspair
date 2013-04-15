@@ -1,0 +1,39 @@
+//
+// Header
+//
+
+.header-container {
+  @extend .full-width;
+  background-color: $purple;
+}
+
+@media #{$small} {
+  // Shift the header over to make room for online-now
+  .header-container {
+    padding-right: $onlineNowWidth;
+  }
+}
+
+.header {
+  max-width: 62.5em;
+}
+
+.header-logo {
+
+}
+
+.header-nav {
+  @extend .inline-list;
+  float: right;
+  position: relative;
+  top: 30px;
+}
+
+.header-nav-item {
+  font-size: 80%;
+  text-transform: uppercase;
+
+  a {
+    color: #ccc;
+  }
+}

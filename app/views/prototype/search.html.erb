@@ -26,7 +26,9 @@
           <img src="http://placehold.it/48x48" />
         </div>
         <div class="large-8 columns">
-          <div class="name">{{name}}</div>
+          <div class="name">
+            <a class="js-open-user-modal">{{name}}</a>
+          </div>
           <div class="pills">
             {{#each topics}}
             <span class="label secondary">{{this}}</span>
@@ -43,4 +45,13 @@
       </div>
     {{/each}}
   </script>
+
+  <div class="large-modal-backdrop user-modal">
+    <div class="large-modal">
+      <div class="row">
+        <div class="large-1 columns">Previous</div>
+        <div class="large-2 columns">Next</div>
+      </div>
+    </div>
+  </div>
 <% end %>

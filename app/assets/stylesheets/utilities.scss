@@ -1,0 +1,13 @@
+//
+// Utilities
+//
+
+// Prepend classes
+@for $i from 1 through 6 {
+  .prepend-#{$i} { margin-top: 10px * $i; }
+}
+
+// Append classes
+@for $i from 1 through 6 {
+  .append-#{$i} { margin-bottom: 10px * $i; }
+}

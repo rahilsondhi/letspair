@@ -1,0 +1,44 @@
+//
+// Large modals
+//
+
+.large-modal-backdrop {
+  display: none;
+  position: fixed;
+  z-index: $zindexModalBackdrop;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  overflow-x: auto;
+  overflow-y: scroll;
+  -webkit-perspective: 1000;
+
+  &.is-open {
+    display: block;
+  }
+}
+
+.large-modal-backdrop.is-open .large-modal {
+  display: block;
+}
+
+.large-modal {
+  display: none;
+  z-index: $zindexModal;
+  overflow: hidden;
+  position: static;
+  width: $largeModalWidth;
+
+  margin: 20px auto;
+  padding: 20px $largeModalHPadding;
+
+  background: rgba(0, 0, 0, .9);
+  @include box-shadow(0 3px 8px rgba(34, 25, 25, 0.4));
+}
+
+// User modal
+.user-modal {
+  padding-right: $onlineNowWidth;
+}

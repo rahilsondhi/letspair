@@ -1,0 +1,37 @@
+//
+// Search
+//
+
+.search-heading {
+  margin-bottom: 10px;
+}
+
+.search-subheading {
+  margin-bottom: 10px;
+}
+
+.search-results-container {
+
+}
+
+.search-result {
+  @extend .row;
+  @extend .append-3;
+}
+
+.search-result .name {
+  margin-bottom: 5px;
+
+  a {
+    color: inherit;
+  }
+}
+
+.search-result .pills {
+  margin-bottom: 5px;
+}
+
+.search-result .location {
+  color: #999;
+  font-size: 80%;
+}

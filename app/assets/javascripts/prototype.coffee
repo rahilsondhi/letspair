@@ -32,3 +32,12 @@ data.users = [
 $ ->
   if $('.search-results-container').length > 0 then $('.search-results-container').append Handlebars.compile($('#search-result').html())(data)
   if $('.online-now').length > 0 then $('.online-now').append Handlebars.compile($('#online-now-row').html())(data)
+
+  $('.js-open-user-modal').click ->
+    # $('body').addClass 'noscroll' # Causes the screen size to change
+    $('.large-modal-backdrop').addClass 'is-open'
+
+  $('.large-modal-backdrop').on 'click', (e) ->
+    if $(e.target).hasClass('large-modal-backdrop')
+      # $('body').toggleClass 'noscroll', false # Causes the screen size to change
+      $('.large-modal-backdrop').toggleClass 'is-open', false
