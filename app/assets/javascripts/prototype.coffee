@@ -37,12 +37,12 @@ $ ->
   # Clicking on a user modal
   #
   $('.js-open-user-modal').click ->
-    # $('body').addClass 'noscroll' # Causes the screen size to change
+    $('body').addClass 'noscroll' # Causes the screen size to change
     $('.large-modal-backdrop').addClass 'is-open'
 
   $('.large-modal-backdrop').on 'click', (e) ->
     if $(e.target).hasClass('large-modal-backdrop')
-      # $('body').toggleClass 'noscroll', false # Causes the screen size to change
+      $('body').toggleClass 'noscroll', false # Causes the screen size to change
       $('.large-modal-backdrop').toggleClass 'is-open', false
   
   $('.js-open-user-modal').click()

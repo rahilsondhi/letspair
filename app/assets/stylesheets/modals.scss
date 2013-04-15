@@ -10,6 +10,7 @@
   right: 0;
   bottom: 0;
   left: 0;
+  overflow-y: scroll;
   background-color: transparent;
   -webkit-perspective: 1000;
 
@@ -27,20 +28,16 @@
   z-index: $zindexModal;
   overflow: hidden;
   position: static;
-  width: $largeModalWidth;
+  max-width: $row-width;
 
   margin: 20px auto;
   padding: 20px $largeModalHPadding;
 
-  background: rgba(0, 0, 0, .9);
+  background: rgba(0, 0, 0, .95);
   @include box-shadow(0 3px 8px rgba(34, 25, 25, 0.4));
 }
 
 // User modal
 .user-modal {
   padding-right: $onlineNowWidth;
-
-  .large-modal {
-    margin-top: 120px;
-  }
 }
