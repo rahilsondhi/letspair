@@ -1,4 +1,4 @@
-//
+  //
 // Online now
 //
 
@@ -11,7 +11,7 @@
   right: 0;
 
   background-color: #eee;
-  padding: 10px 0 0 5px;
+  padding: 10px;
 }
 
 .online-now-row {
@@ -37,10 +37,14 @@
   }
 
   i {
-    color: $green;
     float: right;
-    font-size: 10px;
     position: relative;
     top: 4px;
   }
+}
+
+.icon-online-now {
+  @extend .icon-circle;
+  color: $green;
+  font-size: 10px;
 }

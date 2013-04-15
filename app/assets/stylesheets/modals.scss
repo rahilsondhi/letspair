@@ -11,8 +11,6 @@
   bottom: 0;
   left: 0;
   background-color: transparent;
-  overflow-x: auto;
-  overflow-y: scroll;
   -webkit-perspective: 1000;
 
   &.is-open {
@@ -41,4 +39,8 @@
 // User modal
 .user-modal {
   padding-right: $onlineNowWidth;
+
+  .large-modal {
+    margin-top: 120px;
+  }
 }
