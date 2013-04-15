@@ -1,3 +1,4 @@
+#= require foundation
+
 $ ->
   console.log 'hello'
-  $(document).foundation()
