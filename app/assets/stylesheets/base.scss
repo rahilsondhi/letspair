@@ -4,7 +4,7 @@
 
 @media #{$small} {
   // Shift the content over to make room for online-now
-  .global-content-container {
+  .has-sidebar .global-content-container {
     padding-right: $onlineNowWidth;
   }
 }

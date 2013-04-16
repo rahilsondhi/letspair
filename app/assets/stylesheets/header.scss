@@ -9,7 +9,7 @@
 
 @media #{$small} {
   // Shift the header over to make room for online-now
-  .header-container {
+  .has-sidebar .header-container {
     padding-right: $onlineNowWidth;
   }
 }
