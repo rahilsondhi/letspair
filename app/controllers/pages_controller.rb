@@ -4,4 +4,12 @@ class PagesController < ApplicationController
     
   end
 
+  def coming_soon
+    render layout: 'landing'
+  end
+
+  def designers
+    render layout: 'landing'
+  end
+
 end

@@ -14,11 +14,11 @@
   <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js' %>
 </head>
 <body>
-  <%= render 'shared/header' %>
+  <%= render 'shared/header', logo_only: true %>
   <div class="global-content-container">
     <%= yield %>
   </div>
-  <%= render 'shared/online_now' %>
+  <%= render 'shared/footer' %>
   
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' %>
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js' %>

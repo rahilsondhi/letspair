@@ -2,14 +2,17 @@
   <div class="header large-12 large-centered columns">
     <div class="row">
       <div class="large-6 columns">
-        <h1 class="header-logo">HackerHero</h1>
+        <h1 class="header-logo"><%= link_to 'HackerHero', root_path %></h1>
       </div>
+
+      <% unless defined? logo_only %>
       <div class="large-6 columns">
         <ul class="header-nav">
           <li class="header-nav-item"><a>Search</a></li>
           <li class="header-nav-item"><a>Login with GitHub</a></li>
         </ul>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
