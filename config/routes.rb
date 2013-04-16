@@ -6,9 +6,7 @@ Hackerhero::Application.routes.draw do
     end
   end
 
-  # root to: 'pages#home'
-
-  # Landing page for designers
+  # Landing pages
   root to: 'pages#coming_soon'
   get 'designers-we-need-your-help-with-open-source' => 'pages#designers'
 end
