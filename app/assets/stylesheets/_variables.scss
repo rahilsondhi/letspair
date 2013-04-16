@@ -1,11 +1,30 @@
 //
 // HackerHero Component variables
+// It's nice to keep the number of these variables to a minimum so we can easily theme the app :)
+// Between this files and foundation-overrides, you can adjust the color scheme of the whole app
 //
 
+//
+// Header
+//
+$header-bg: #29233f;
+
+//
 // Online now
+//
+$onlineNowBgColor: #eee;
+$onlineNowColor: #666;
 $onlineNowWidth: 205px;
 
+//
 // Large modal
+//
 $zindexModalBackdrop:     1040 !default;
 $zindexModal:             1050 !default;
-$largeModalHPadding: 30px;
+
+//
+// Real color hexes
+// Noun components shouldn't actually reference these (eg header)
+// Only adjective components should use these (eg green-button)
+//
+$green: #6aa84f;

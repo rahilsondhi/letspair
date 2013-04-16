@@ -32,6 +32,6 @@
 }
 
 .search-result .location {
-  color: #999;
+  color: lighten($body-bg, 40%);
   font-size: 80%;
 }

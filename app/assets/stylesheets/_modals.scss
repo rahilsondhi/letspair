@@ -31,7 +31,7 @@
   max-width: $row-width;
 
   margin: 20px auto;
-  padding: 20px $largeModalHPadding;
+  padding: 20px 30px;
 
   background: rgba(0, 0, 0, .95);
   @include box-shadow(0 3px 8px rgba(34, 25, 25, 0.4));

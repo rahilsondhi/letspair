@@ -45,4 +45,4 @@ $ ->
       $('body').toggleClass 'noscroll', false # Causes the screen size to change
       $('.large-modal-backdrop').toggleClass 'is-open', false
   
-  $('.js-open-user-modal').click()
+  # $('.js-open-user-modal').click()

@@ -4,7 +4,7 @@
 
 .header-container {
   @extend .full-width;
-  background-color: $purple;
+  background-color: $header-bg;
 }
 
 @media #{$small} {
@@ -36,6 +36,6 @@
   text-transform: uppercase;
 
   a {
-    color: #ccc;
+    color: invert($header-bg);
   }
 }
