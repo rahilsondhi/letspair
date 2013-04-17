@@ -1,0 +1,56 @@
+<div class="request-to-pair-header row prepend-4">
+  <div class="large-12 columns">
+    <h4 class="subheader text-center"><i class="icon-exchange"></i> Request a Pairing Session with Ronnie Harrison</h4>
+  </div>
+</div>
+
+<div class="row prepend-4">
+  <div class="large-6 columns">
+    <form>
+      <div class="row">
+        <div class="large-12 columns">
+          <label>What do you want to work on?</label>
+          <input name="topics" type="text" class="large-12 js-select2-tokens" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns prepend-2">
+          <label>Approximate length of session</label>
+          <select name="duration" class="large-12 js-select2">
+            <option value="30">30 minutes</option>
+            <option value="60">1 hour</option>
+            <option value="120">2 hours</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns prepend-2">
+          <label>Your timezone</label>
+          <%= select_tag 'timezone', time_zone_options_for_select(ActiveSupport::TimeZone.us_zones), class: 'large-12 js-select2' %>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="large-12 columns prepend-2">
+          <label>Suggest 3 times</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns prepend-2">
+          <label>Any comments?</label>
+          <textarea></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns prepend-2">
+          <input type="submit" class="button large secondary" value="Let's do this!">
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

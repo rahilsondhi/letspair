@@ -44,5 +44,9 @@ $ ->
     if $(e.target).hasClass('large-modal-backdrop')
       $('body').toggleClass 'noscroll', false # Causes the screen size to change
       $('.large-modal-backdrop').toggleClass 'is-open', false
-  
-  # $('.js-open-user-modal').click()
+
+  #
+  # Request to Pair
+  #
+  $('.js-select2-tokens').select2 tags:[], tokenSeparators: [",", " "]
+  $('.js-select2').select2()

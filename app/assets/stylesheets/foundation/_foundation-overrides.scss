@@ -186,9 +186,9 @@ $header-font-color: #eee;
 
 // We use these to style the labels in different ways
 // $label-pointer: pointer;
-// $label-font-size: emCalc(14px);
+$label-font-size: emCalc(16px);
 // $label-font-weight: 500;
-// $label-font-color: lighten(#000, 30%);
+$label-font-color: $body-font-color;
 // $label-bottom-margin: emCalc(3px);
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);

@@ -1,7 +1,11 @@
 class PrototypeController < ApplicationController
   
   def search
-    render layout: 'application'    
+    
+  end
+
+  def request_to_pair
+    
   end
 
 end
