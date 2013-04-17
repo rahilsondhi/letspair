@@ -16,3 +16,5 @@ Procfile-test
 Procfile-deps
 config/database.yml
 *.sublime-*
+app/assets/stylesheets/config.rb
+app/assets/stylesheets/*/config.rb
