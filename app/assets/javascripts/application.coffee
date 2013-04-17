@@ -1,4 +1,2 @@
 #= require foundation
-
-$ ->
-  console.log 'hello'
+#= require select2.min
