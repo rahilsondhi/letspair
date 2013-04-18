@@ -50,3 +50,6 @@ $ ->
   #
   $('.js-select2-tokens').select2 tags:[], tokenSeparators: [",", " "]
   $('.js-select2').select2()
+  $('[name^="suggested-date-"]').datepicker
+    showAnim: ''
+    minDate: 0
