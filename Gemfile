@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
+gem 'thin'
 gem 'pg'
 gem 'activerecord-postgres-hstore'
 gem 'friendly_id', '~> 4.0.9'
@@ -18,6 +19,7 @@ group :assets do
   gem 'uglifier', '~> 1.2.7'
   gem 'handlebars_assets', '~> 0.6.4'
   gem 'zurb-foundation', github: 'zurb/foundation'
+  gem 'jquery-ui-rails', github: 'rahilsondhi/jquery-ui-rails'
 end
 
 group :development do
