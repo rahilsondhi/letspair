@@ -1,0 +1,116 @@
+<div class="row prepend-4">
+  <h4 class="subheader">My Sessions</h4>
+  <dl class="sub-nav">
+    <dt>Filter:</dt>
+    <dd class="active"><a href="#">All</a></dd>
+    <dd><a href="#">Active</a></dd>
+    <dd><a href="#">Pending</a></dd>
+    <dd><a href="#">Suspended</a></dd>
+  </dl>
+</div>
+
+<div class="row">
+  <div class="session-list">
+  </div>
+
+  <div class="large-4 columns">
+    <form>
+      <div class="row">
+        <div class="large-12 columns">
+          <label>What do you want to work on?</label>
+          <input name="topics" type="text" class="large-12 js-select2-tokens" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns prepend-2">
+          <label>Approximate length of session</label>
+          <select name="duration" class="large-12 js-select2">
+            <option value="30">30 minutes</option>
+            <option value="60">1 hour</option>
+            <option value="120">2 hours</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns prepend-2">
+          <label>Your timezone</label>
+          <%= select_tag 'timezone', time_zone_options_for_select(ActiveSupport::TimeZone.us_zones), class: 'large-12 js-select2' %>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="large-6 columns prepend-2">
+          <label>Suggest 3 times</label>
+          <input type="text" name="suggested-date-1" />
+          <input type="text" name="suggested-date-2" />
+          <input type="text" name="suggested-date-3" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns prepend-2">
+          <label>Any comments?</label>
+          <textarea></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns prepend-2">
+          <input type="submit" class="button large secondary" value="Let's do this!">
+        </div>
+      </div>
+
+    </form>  
+  </div>
+
+  <div class="chat-message-list">
+  </div>
+</div>
+
+<%= content_for :javascripts do %>
+  <script id="session" type="text/x-handlebars-template" charset="utf-8">
+    {{#each users}}
+      <div class="session">
+        <div class="session-left">
+          <img src="http://placehold.it/48x48" />
+        </div>
+        <div class="session-right">
+          <div class="session-partner-name">
+            {{name}}
+          </div>
+          <div class="session-topics">
+            <small>{{join topics delimiter=", "}}</small>
+          </div>
+          <div class="session-date">
+            <small>{{sessionDirection}}</small>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </script>
+
+  <script id="chat-message" type="text/x-handlebars-template" charset="utf-8">
+    {{#each users}}
+    {{#if message}}
+      <div class="chat-message">
+        <div class="chat-message-left">
+          <img src="http://placehold.it/24x24" />
+        </div>
+
+        <div class="chat-message-right">
+          <div class="chat-message-header">
+            {{name}}
+            April 10, 2013 at 5:50pm
+          </div>
+          <div class="chat-message-body">
+            <p>{{message}}</p>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+    {{/each}}
+  </script>
+<% end %>
+

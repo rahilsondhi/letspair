@@ -1,7 +1,7 @@
 Hackerhero::Application.routes.draw do
   # Prototype, for development only
   if Rails.env.development?
-    %w[search request_to_pair].each do |page|
+    %w[search request_to_pair sessions].each do |page|
       get page => "prototype##{page}"
     end
   end

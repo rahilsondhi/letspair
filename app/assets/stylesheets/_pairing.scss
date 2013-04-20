@@ -6,3 +6,54 @@
   background-color: $secondary-color;
   padding: 10px 0;
 }
+
+//
+// Sessions
+//
+
+.session-list {
+  @include grid-column($columns: 4);
+  max-width: 200px;
+}
+
+.session {
+  @include grid-row(nest);
+  margin-bottom: 20px;
+}
+
+.session-left {
+  @include grid-column($columns: 4, $collapse: true);
+}
+
+.session-right {
+  @include grid-column($columns: 8, $collapse: true);
+}
+
+//
+// Message stream
+//
+
+.chat-message-list {
+  @include grid-column($columns: 4);
+}
+
+.chat-message {
+  @include grid-row;
+}
+
+.chat-message-left {
+  @include grid-column($columns: 2, $collapse: true);
+}
+
+.chat-message-right {
+  @include grid-column($columns: 10, $collapse: true);
+}
+
+.chat-message-header {
+  @include grid-row(nest);
+  font-size: 80%;
+}
+
+.chat-message-body {
+  @include grid-row(nest);
+}
