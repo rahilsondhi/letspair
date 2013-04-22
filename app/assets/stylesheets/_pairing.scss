@@ -57,3 +57,42 @@
 .chat-message-body {
   @include grid-row(nest);
 }
+
+//
+// Need date types
+//
+
+.need-date-types {
+  @extend .row;
+}
+
+.need-date-type {
+  @extend .large-4;
+  @extend .small-4;
+  @extend .columns;
+  background-color: darken($body-bg, 4%);
+  border: 5px solid transparent;
+  cursor: pointer;
+
+  &.is-active {
+    border-color: $primary-color;
+  }
+
+  .need-date-type-text {
+    font-size: 1.2em;
+    margin: 0;
+    padding: 40px 0 20px 0;
+    text-align: center; 
+  }
+
+  .need-date-type-icon {
+    margin: 0;
+    padding: 0 0 40px 0;
+    text-align: center;
+  }
+
+  i {
+    color: darken($body-font-color, 50%);
+    font-size: 4em;
+  }
+}

@@ -37,3 +37,15 @@
   line-height: 30px;
   margin-right: 10px;
 }
+
+//
+// Topic pills
+//
+.topic-pills {
+
+}
+
+.topic-pill {
+  @extend .label;
+  @extend .secondary;
+}

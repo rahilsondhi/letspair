@@ -11,3 +11,7 @@
 @for $i from 1 through 6 {
   .append-#{$i} { margin-bottom: 10px * $i; }
 }
+
+.textarea-medium {
+  height: 8em;
+}
