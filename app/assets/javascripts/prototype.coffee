@@ -68,6 +68,7 @@ $ ->
   if $('.online-now').length > 0 then $('.online-now').append Handlebars.compile($('#online-now-row').html())(data)
   if $('.session-list').length > 0 then $('.session-list').append Handlebars.compile($('#session').html())(data)
   if $('.chat-message-list').length > 0 then $('.chat-message-list').append Handlebars.compile($('#chat-message').html())(data)
+  if $('.need-row').length > 0 then $('.need-row').foundation('dropdown')
 
   #
   # Clicking on a user modal
