@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423234911) do
+ActiveRecord::Schema.define(:version => 20130423235018) do
 
   create_table "credentials", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(:version => 20130423234911) do
   add_index "sessions", ["partner_id"], :name => "index_sessions_on_partner_id"
   add_index "sessions", ["state"], :name => "index_sessions_on_state"
   add_index "sessions", ["user_id"], :name => "index_sessions_on_user_id"
+
+  create_table "topics", :force => true do |t|
+    t.string   "name",         :null => false
+    t.integer  "github_id"
+    t.string   "github_owner"
+    t.string   "github_name"
+    t.string   "language"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",       :null => false
