@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423233211) do
+ActiveRecord::Schema.define(:version => 20130423233418) do
 
   create_table "credentials", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(:version => 20130423233211) do
   end
 
   add_index "credentials", ["user_id"], :name => "index_credentials_on_user_id"
+
+  create_table "messages", :force => true do |t|
+    t.integer  "author_id",    :null => false
+    t.integer  "recipient_id", :null => false
+    t.integer  "session_id",   :null => false
+    t.text     "body",         :null => false
+    t.datetime "created_at",   :null => false
+  end
+
+  add_index "messages", ["session_id"], :name => "index_messages_on_session_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",       :null => false
