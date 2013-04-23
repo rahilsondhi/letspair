@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423234124) do
+ActiveRecord::Schema.define(:version => 20130423234911) do
 
   create_table "credentials", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -34,6 +34,19 @@ ActiveRecord::Schema.define(:version => 20130423234124) do
   end
 
   add_index "messages", ["session_id"], :name => "index_messages_on_session_id"
+
+  create_table "needs", :force => true do |t|
+    t.integer  "user_id",              :null => false
+    t.string   "date_type"
+    t.text     "description"
+    t.datetime "date_suggested_one"
+    t.datetime "date_suggested_two"
+    t.datetime "date_suggested_three"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "needs", ["user_id"], :name => "index_needs_on_user_id"
 
   create_table "sessions", :force => true do |t|
     t.integer  "user_id",              :null => false
