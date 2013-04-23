@@ -7,11 +7,8 @@
 // Mixins
 @import 'mixins';
 
-// Required global settings and mixins for Foundation
-@import 'foundation/foundation-global';
-
-// Foundation overrides
-@import 'foundation/foundation-overrides';
+// HackerHero component and Foundation variables
+@import 'variables';
 
 // Foundation Components
 @import 'foundation/components/global';
