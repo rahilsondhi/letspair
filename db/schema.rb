@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423233017) do
+ActiveRecord::Schema.define(:version => 20130423233211) do
+
+  create_table "credentials", :force => true do |t|
+    t.integer  "user_id",    :null => false
+    t.string   "provider",   :null => false
+    t.integer  "uid",        :null => false
+    t.string   "token"
+    t.string   "username"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "credentials", ["user_id"], :name => "index_credentials_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",       :null => false
