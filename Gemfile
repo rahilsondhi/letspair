@@ -27,9 +27,18 @@ group :development do
   gem 'binding_of_caller' # This is for better_errors
   gem 'heroku_san'
   gem 'annotate'
+end
 
-  # For prototyping
+group :test do
+  # Testing
+  gem 'rspec-rails'
+  gem 'shoulda'
+
+  # Guard related stuff
   gem 'guard'
   gem 'guard-livereload'
+  gem 'guard-rspec'
+  gem 'guard-zeus'
   gem 'rb-fsevent'
+  gem 'terminal-notifier-guard'
 end
