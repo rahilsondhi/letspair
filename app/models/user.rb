@@ -14,5 +14,46 @@
 #
 
 class User < ActiveRecord::Base
+  #
+  # Assocations
+  #
+  has_many  :credentials
+
+  has_many  :authored_messages,
+            class_name: 'Message',
+            foreign_key: 'author_id'
+
+  has_many  :recipient_messages,
+            class_name: 'Message',
+            foreign_key: 'recipient_id'
+
+  has_many  :sessions
+
+  has_many  :partnered_sessions,
+            class_name: 'Session',
+            foreign_key: 'partner_id'
+
+  has_many  :needs
+
+  has_and_belongs_to_many :topics
+
+  #
+  # Validations
+  #
+  validates :email,
+            presence: true
+
+  validates :username,
+            presence: true
+
+  validates :name,
+            presence: true
+
+  validates :timezone,
+            presence: true
+
+  #
+  # Misc
+  #
   attr_accessible :email, :last_online, :location, :name, :timezone, :username
 end
