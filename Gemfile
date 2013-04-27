@@ -33,6 +33,7 @@ group :test do
   # Testing
   gem 'rspec-rails'
   gem 'shoulda'
+  gem 'fabrication'
 
   # Guard related stuff
   gem 'guard'

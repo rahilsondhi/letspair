@@ -12,7 +12,14 @@ RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
 
-  # From RailsCast #413 http://railscasts.com/episodes/413-fast-tests
+  # From RailsCast #413
+  # http://railscasts.com/episodes/413-fast-tests
   config.before(:all) { DeferredGarbageCollection.start }
   config.after(:all) { DeferredGarbageCollection.reconsider }
+end
+
+# Fabrication
+# http://www.fabricationgem.org/#!configuration
+Fabrication.configure do |config|
+  config.fabricator_path = 'spec/fabricators'
 end
