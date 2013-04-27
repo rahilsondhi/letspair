@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe User do
   it { should validate_presence_of(:email) }
-  it { should validate_format_of(:email).with('john@gmail.com') }
-  it { should validate_format_of(:email).not_with('asdf') }
+  it { should allow_value('john@gmail.com').for(:email) }
+  it { should_not allow_value('asdf', 'asdggmail.com', '@gmail.com').for(:email) }
   it { should validate_presence_of(:username) }
   it { should validate_presence_of(:name) }
   it { should ensure_length_of(:name).is_at_most(255) }

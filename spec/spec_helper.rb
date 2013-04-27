@@ -20,18 +20,13 @@ RSpec.configure do |config|
 
   # DatabaseCleaner
   # https://github.com/bmabey/database_cleaner
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+  # Disabled for now to increase speed. Not sure if I really need this.
+  # config.before(:suite) do
+  #   DatabaseCleaner.strategy = :transaction
+  #   DatabaseCleaner.clean_with(:truncation)
+  # end
+  # config.before(:each) { DatabaseCleaner.start }
+  # config.after(:each) { DatabaseCleaner.clean }
 end
 
 # Fabrication
