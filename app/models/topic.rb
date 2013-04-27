@@ -27,7 +27,8 @@ class Topic < ActiveRecord::Base
 
   validates :name,
             presence: true,
-            uniqueness: true
+            uniqueness: { case_sensitive: false },
+            length: { maximum: 255 }
 
   validates :github_id,
             uniqueness: true

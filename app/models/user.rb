@@ -46,13 +46,23 @@ class User < ActiveRecord::Base
   #
 
   validates :email,
-            presence: true
+            presence: true,
+            format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/ },
+            uniqueness: { case_sensitive: false }
 
   validates :username,
-            presence: true
+            presence: true,
+            format: { with: /\A[a-z0-9A-Z]+((\.|_)[a-z0-9A-Z]+)*/ },
+            length: { maximum: 40 },
+            uniqueness: { case_sensitive: false },
+            exclusion:  {
+              in: Rails.application.routes.routes.map{|r| r.path.spec.to_s.split('(').first.split('/').second}.compact.uniq,
+              message: 'invalid'
+            }
 
   validates :name,
-            presence: true
+            presence: true,
+            length: { maximum: 255 }
 
   validates :timezone,
             presence: true

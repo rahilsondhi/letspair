@@ -2,9 +2,18 @@ require 'spec_helper'
 
 describe User do
   it { should validate_presence_of(:email) }
+  it { should validate_format_of(:email).with('john@gmail.com') }
+  it { should validate_format_of(:email).not_with('asdf') }
   it { should validate_presence_of(:username) }
   it { should validate_presence_of(:name) }
+  it { should ensure_length_of(:name).is_at_most(255) }
   it { should validate_presence_of(:timezone) }
+
+  describe 'username validations' do
+    subject { Fabricate.build(:user) }
+    it { should allow_value('johndoe', '1johndoe', '1john_doe').for(:username) }
+    it { should_not allow_value('!@##$%', '_johndoe', 'johndoe_').for(:username) }
+  end
 
   it { should have_many(:credentials) }
   it { should have_many(:authored_messages).class_name('Message') }
