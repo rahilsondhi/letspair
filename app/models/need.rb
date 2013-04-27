@@ -14,6 +14,41 @@
 #
 
 class Need < ActiveRecord::Base
-  belongs_to :user
+  #
+  # Constants
+  #
+
+  VALID_DATE_TYPES = %w(ongoing now specific)
+
+  #
+  # Assocations
+  #
+
+  has_many    :sessions,
+              inverse_of: :need
+
+  belongs_to  :user,
+              inverse_of: :needs
+
+  has_and_belongs_to_many :topics
+
+  #
+  # Validations
+  #
+
+  validates :user_id,
+            presence: true
+
+  validates :date_type,
+            presence: true,
+            inclusion: { in: VALID_DATE_TYPES }
+
+  validates :description,
+            presence: true
+
+  #
+  # Misc
+  #
+
   attr_accessible :date_suggested_one, :date_suggested_three, :date_suggested_two, :date_type, :description
 end
