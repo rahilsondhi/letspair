@@ -32,7 +32,7 @@ end
 group :test do
   # Testing
   gem 'rspec-rails'
-  gem 'shoulda'
+  gem 'shoulda', '~> 2.0'
   gem 'fabrication'
 
   # Guard related stuff
