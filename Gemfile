@@ -33,7 +33,7 @@ group :test do
   # Testing
   gem 'rspec-rails'
   gem 'shoulda', github: 'thoughtbot/shoulda'
-  gem 'fabrication'
+  gem 'database_cleaner'
 
   # Guard related stuff
   gem 'guard'
@@ -42,4 +42,9 @@ group :test do
   gem 'guard-zeus'
   gem 'rb-fsevent'
   gem 'terminal-notifier-guard'
+end
+
+group :development, :test do
+  gem 'fabrication'
+  gem 'faker'
 end
