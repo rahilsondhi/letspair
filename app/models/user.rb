@@ -23,11 +23,13 @@ class User < ActiveRecord::Base
 
   has_many  :authored_messages,
             class_name: 'Message',
-            foreign_key: 'author_id'
+            foreign_key: 'author_id',
+            inverse_of: :author
 
   has_many  :recipient_messages,
             class_name: 'Message',
-            foreign_key: 'recipient_id'
+            foreign_key: 'recipient_id',
+            inverse_of: :recipient
 
   has_many  :sessions
 
