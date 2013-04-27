@@ -13,6 +13,29 @@
 #
 
 class Credential < ActiveRecord::Base
-  belongs_to :user
+  #
+  # Assocations
+  #
+
+  belongs_to  :user,
+              inverse_of: :credentials
+
+  #
+  # Validations
+  #
+
+  validates :user_id,
+            presence: true
+
+  validates :provider,
+            presence: true
+
+  validates :uid,
+            presence: true
+
+  #
+  # Misc
+  #
+
   attr_accessible :provider, :token, :uid, :username
 end

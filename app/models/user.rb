@@ -17,7 +17,9 @@ class User < ActiveRecord::Base
   #
   # Assocations
   #
-  has_many  :credentials
+
+  has_many  :credentials,
+            inverse_of: :user
 
   has_many  :authored_messages,
             class_name: 'Message',
@@ -40,6 +42,7 @@ class User < ActiveRecord::Base
   #
   # Validations
   #
+
   validates :email,
             presence: true
 
@@ -55,5 +58,6 @@ class User < ActiveRecord::Base
   #
   # Misc
   #
+
   attr_accessible :email, :last_online, :location, :name, :timezone, :username
 end
