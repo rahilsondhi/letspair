@@ -6,7 +6,7 @@
 #  user_id              :integer          not null
 #  partner_id           :integer          not null
 #  need_id              :integer
-#  waiting_for          :integer
+#  waiting_for_id       :integer
 #  state                :string(255)
 #  description          :text
 #  date                 :datetime

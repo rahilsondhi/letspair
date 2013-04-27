@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425144045) do
+ActiveRecord::Schema.define(:version => 20130427192630) do
 
   create_table "credentials", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(:version => 20130425144045) do
     t.integer  "user_id",              :null => false
     t.integer  "partner_id",           :null => false
     t.integer  "need_id"
-    t.integer  "waiting_for"
+    t.integer  "waiting_for_id"
     t.string   "state"
     t.text     "description"
     t.datetime "date"
