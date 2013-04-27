@@ -13,5 +13,28 @@
 #
 
 class Topic < ActiveRecord::Base
+  #
+  # Associations
+  #
+
+  has_and_belongs_to_many :users
+  has_and_belongs_to_many :sessions
+  has_and_belongs_to_many :needs
+
+  #
+  # Validations
+  #
+
+  validates :name,
+            presence: true,
+            uniqueness: true
+
+  validates :github_id,
+            uniqueness: true
+
+  #
+  # Misc
+  #
+
   attr_accessible :github_id, :github_name, :github_owner, :language, :name
 end
