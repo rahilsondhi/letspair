@@ -1,0 +1,13 @@
+defaults: &defaults
+  github:
+    app_id: <%= ENV['GITHUB_APP_ID'] %>
+    app_secret: <%= ENV['GITHUB_APP_SECRET'] %>
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

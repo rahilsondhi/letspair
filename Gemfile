@@ -13,6 +13,13 @@ gem 'rabl', '~> 0.7.9'
 gem 'oj', '~> 2.0.2'
 gem 'foreman', '~> 0.57.0'
 
+#
+# Authentication
+#
+
+gem 'omniauth', '~> 1.1'
+gem 'omniauth-github', '~> 1.1'
+
 group :assets do
   gem 'sass-rails', '~> 3.2.6'
   gem 'coffee-rails', '~> 3.2.2'
@@ -27,6 +34,7 @@ group :development do
   gem 'binding_of_caller' # This is for better_errors
   gem 'heroku_san'
   gem 'annotate'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -47,4 +55,5 @@ end
 group :development, :test do
   gem 'fabrication'
   gem 'faker'
+  gem 'dotenv-rails', '~> 0.7'
 end
