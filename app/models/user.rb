@@ -11,6 +11,7 @@
 #  timezone    :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  dp          :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -19,7 +20,8 @@ class User < ActiveRecord::Base
   #
 
   has_many  :credentials,
-            inverse_of: :user
+            inverse_of: :user,
+            dependent: :destroy
 
   has_many  :authored_messages,
             class_name: 'Message',
@@ -64,12 +66,9 @@ class User < ActiveRecord::Base
             presence: true,
             length: { maximum: 255 }
 
-  validates :timezone,
-            presence: true
-
   #
   # Misc
   #
 
-  attr_accessible :email, :last_online, :location, :name, :timezone, :username
+  attr_accessible :email, :last_online, :location, :name, :timezone, :username, :dp
 end
