@@ -7,7 +7,6 @@ describe User do
   it { should validate_presence_of(:username) }
   it { should validate_presence_of(:name) }
   it { should ensure_length_of(:name).is_at_most(255) }
-  it { should validate_presence_of(:timezone) }
 
   describe 'username validations' do
     subject { Fabricate.build(:user) }

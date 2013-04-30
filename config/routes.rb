@@ -24,5 +24,12 @@ Hackerhero::Application.routes.draw do
   # Omniauth
   #
 
-  get '/auth/:provider/callback', to: 'auth_sessions#create'
+  get '/auth/:provider/callback', to: 'auth_sessions#callback'
+
+  #
+  # Registration
+  #
+
+  get '/register/step1' => 'registration#step1', as: 'register_step1'
+
 end
