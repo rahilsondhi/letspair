@@ -71,4 +71,5 @@ class User < ActiveRecord::Base
   #
 
   attr_accessible :email, :last_online, :location, :name, :timezone, :username, :dp
+  accepts_nested_attributes_for :credentials
 end

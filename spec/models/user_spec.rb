@@ -21,4 +21,5 @@ describe User do
   it { should have_many(:partnered_sessions).class_name('Session') }
   it { should have_many(:needs) }
   it { should have_and_belong_to_many(:topics) }
+  it { should accept_nested_attributes_for(:credentials) }
 end
