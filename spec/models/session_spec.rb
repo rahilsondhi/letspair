@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe Session do
-  it { should validate_presence_of(:user_id) }
-  it { should validate_presence_of(:partner_id) }
   it { should validate_presence_of(:state) }
   it { should ensure_inclusion_of(:state).in_array(Session::VALID_STATES) }
 

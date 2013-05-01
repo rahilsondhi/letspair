@@ -52,12 +52,6 @@ class Session < ActiveRecord::Base
   # Validations
   #
 
-  validates :user_id,
-            presence: true
-
-  validates :partner_id,
-            presence: true
-
   validates :state,
             presence: true,
             inclusion: { in: VALID_STATES }
