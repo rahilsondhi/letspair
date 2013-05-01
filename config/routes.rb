@@ -32,4 +32,10 @@ Hackerhero::Application.routes.draw do
 
   get '/register/step1' => 'registration#step1', as: 'register_step1'
 
+  #
+  # Users
+  #
+
+  resources :users
+
 end

@@ -1,21 +1,19 @@
 class Registration
 
-  def self.new_account(auth_hash)
-    github = auth_hash['extra']['raw_info']
-
+  def self.new_account(attrs)
     user = User.create!({
-      email: github['email'],
-      username: github['login'],
-      name: github['name'],
-      location: github['location'],
-      dp: github['avatar_url']
+      email: attrs[:email],
+      username: attrs[:username],
+      name: attrs[:name],
+      location: attrs[:location],
+      dp: attrs[:dp]
     })
 
     user.credentials.create!({
-      provider: 'github',
-      uid: github['id'],
-      token: auth_hash['credentials']['token'],
-      username: github['login']
+      provider: attrs[:provider],
+      uid: attrs[:uid],
+      token: attrs[:token],
+      username: attrs[:oauth_username]
     })
 
     user

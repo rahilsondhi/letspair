@@ -5,8 +5,18 @@ class AuthSessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path
     else
-      user = Registration.new_account(auth_hash)
-      session[:user_id] = user.id
+      session[:pending_user] = {
+        email: github['email'],
+        username: github['login'],
+        name: github['name'],
+        location: github['location'],
+        dp: github['avatar_url'],
+        provider: 'github',
+        uid: github['id'],
+        token: auth_hash['credentials']['token'],
+        oauth_username: github['login']
+      }
+
       redirect_to register_step1_path
     end
   end
@@ -15,6 +25,10 @@ class AuthSessionsController < ApplicationController
 
   def auth_hash
     request.env['omniauth.auth']
+  end
+
+  def github
+    auth_hash['extra']['raw_info']
   end
 
 end
