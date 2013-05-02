@@ -70,6 +70,6 @@ class User < ActiveRecord::Base
   # Misc
   #
 
-  attr_accessible :email, :last_online, :location, :name, :timezone, :username, :dp
+  attr_accessible :email, :last_online, :location, :name, :timezone, :username, :dp, :credentials_attributes
   accepts_nested_attributes_for :credentials
 end

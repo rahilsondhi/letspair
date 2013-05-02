@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   respond_to :json
 
   def create
-    pending_user = session[:pending_user]
+    pending_user = session[:pending_user] || {}
 
     @user = Registration.new_account({
       email: params[:email],
@@ -16,12 +16,12 @@ class UsersController < ApplicationController
       oauth_username: pending_user[:login]
     })
 
-    if @user
+    if @user.persisted?
       session[:pending_user] = nil
       session[:user_id] = @user.id
       respond_with @user, status: :created
     else
-      respond_with @user.errors, status: :unprocessable_entity
+      respond_with @user, status: :unprocessable_entity
     end
   end
 

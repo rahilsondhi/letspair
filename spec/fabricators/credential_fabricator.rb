@@ -1,0 +1,3 @@
+Fabricator :credential do
+
+end
