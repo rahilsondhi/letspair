@@ -13,16 +13,17 @@
   <%= stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.0.2/css/font-awesome.min.css' %>
   <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js' %>
 </head>
-<body>
-  <%= render 'shared/header', logo_only: true %>
+<body class="has-sidebar">
+  <%= render 'shared/header' %>
   <div class="global-content-container">
     <%= yield %>
   </div>
-  <%= render 'shared/footer' %>
+  <%= render 'shared/online_now' %>
 
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' %>
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js' %>
   <%= render 'shared/ga' %>
+  <%= javascript_include_tag 'prototype' %>
   <%= javascript_include_tag 'application' %>
   <%= yield :javascripts %>
 </body>

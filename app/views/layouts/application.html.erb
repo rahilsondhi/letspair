@@ -13,21 +13,14 @@
   <%= stylesheet_link_tag '//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.0.2/css/font-awesome.min.css' %>
   <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js' %>
 </head>
-<body class="has-sidebar">
+<body>
   <%= render 'shared/header' %>
   <div class="global-content-container">
     <%= yield %>
   </div>
-  <%= render 'shared/online_now' %>
-  
+
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' %>
   <%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js' %>
-  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/select2/3.3.2/select2.min.js' %>
-  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js' %>
-  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js' %>
-  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/backbone.marionette/1.0.1-bundled/backbone.marionette.min.js' %>
-  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.0/backbone.localStorage-min.js' %>
-  <%= javascript_include_tag '//cdnjs.cloudflare.com/ajax/libs/backbone.validation/0.7.1/backbone-validation-min.js' %>
   <%= render 'shared/ga' %>
   <%= javascript_include_tag 'prototype' %>
   <%= javascript_include_tag 'application' %>
