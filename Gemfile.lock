@@ -117,7 +117,7 @@ GEM
     guard-zeus (0.0.1)
       guard
       zeus
-    handlebars_assets (0.6.7)
+    handlebars_assets (0.12.0)
       execjs (>= 1.2.9)
       sprockets (>= 2.0.3)
       tilt
@@ -294,7 +294,7 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   guard-zeus
-  handlebars_assets (~> 0.6.4)
+  handlebars_assets (~> 0.12)
   heroku_san
   jquery-ui-rails!
   oj (~> 2.0.2)

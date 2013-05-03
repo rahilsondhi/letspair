@@ -24,9 +24,9 @@ group :assets do
   gem 'sass-rails', '~> 3.2.6'
   gem 'coffee-rails', '~> 3.2.2'
   gem 'uglifier', '~> 1.2.7'
-  gem 'handlebars_assets', '~> 0.6.4'
   gem 'zurb-foundation', github: 'zurb/foundation'
   gem 'jquery-ui-rails', github: 'rahilsondhi/jquery-ui-rails'
+  gem 'handlebars_assets', '~> 0.12'
 end
 
 group :development do
