@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       name: params[:name],
       location: params[:location],
       dp: pending_user[:dp],
+      timezone: params[:timezone],
       provider: pending_user[:provider],
       uid: pending_user[:uid],
       token: pending_user[:token],
@@ -17,10 +18,12 @@ class UsersController < ApplicationController
     })
 
     if @user.persisted?
+      logger.info 'Created a new user'
       session[:pending_user] = nil
       session[:user_id] = @user.id
       respond_with @user, status: :created
     else
+      logger.info 'Error with creating user'
       respond_with @user, status: :unprocessable_entity
     end
   end

@@ -4,22 +4,27 @@
   <form action="/users" method="post">
   <div class="large-3 columns push-3">
     <img src="{{dp}}" height="211" width="211" />
-    <a class="register-change-photo button secondary small">Change photo</a>
+    {{! <a class="register-change-photo button secondary small">Change photo</a> }}
   </div>
 
   <div class="large-4 columns pull-2">
+    <div class="js-error-list-container"></div>
     <input type="text" name="username" placeholder="Username" value="{{username}}" />
     <input type="text" name="name" placeholder="Full name" value="{{name}}" />
     <input type="text" name="email" placeholder="Email" value="{{email}}" />
     <input type="text" name="location" placeholder="Location" value="{{location}}" />
-    <select>
-      <option>Todo: timezone</option>
+    <select name="timezone">
+      {{#each timezones}}
+        <option value="{{this.value}}">{{this.key}}</option>
+      {{/each}}
     </select>
 
     <p class="prepend-2">What topics are you fairly good at?</p>
     <input name="topics" type="text" class="large-12 js-select2-tokens" />
 
-    <input type="submit" class="button prepend-2" value="Next step &rarr;">
+    <div class="js-actions">
+      <input type="submit" class="button prepend-2" value="Next step &rarr;">
+    </div>
   </div>
   </form>
 </div>

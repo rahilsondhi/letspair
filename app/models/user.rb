@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
 
   validates :username,
             presence: true,
-            format: { with: /\A[a-z0-9A-Z]+((\.|_)[a-z0-9A-Z]+)*/ },
+            format: { with: /^[a-zA-Z0-9_]*$/ }, # Can only contain letters, numbers, and underscores.
             length: { maximum: 40 },
             uniqueness: { case_sensitive: false },
             exclusion:  {

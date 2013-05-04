@@ -10,6 +10,7 @@ class Registration
       name: attrs[:name],
       location: attrs[:location],
       dp: attrs[:dp],
+      timezone: attrs[:timezone],
       credentials_attributes: [
         {
           provider: attrs[:provider],

@@ -24,6 +24,9 @@
   <%= render 'shared/ga' %>
   <%= javascript_include_tag 'prototype' %>
   <%= javascript_include_tag 'application' %>
+  <%= javascript_tag do %>
+    Pair.Helpers.Timezones = <%= raw Oj.dump(timezones) %>;
+  <% end %>
   <%= yield :javascripts %>
 </body>
 </html>
