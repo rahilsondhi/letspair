@@ -184,9 +184,8 @@ GEM
       slop (~> 3.4)
     pry-rails (0.2.2)
       pry (>= 0.9.10)
-    rabl (0.7.10)
+    rabl (0.8.4)
       activesupport (>= 2.3.14)
-      multi_json (~> 1.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -303,7 +302,7 @@ DEPENDENCIES
   pg
   postgres_ext (~> 0.2.2)
   pry-rails
-  rabl (~> 0.7.9)
+  rabl (~> 0.8.4)
   rails (= 3.2.3)
   rb-fsevent
   rspec-rails
@@ -312,6 +311,6 @@ DEPENDENCIES
   shoulda!
   terminal-notifier-guard
   thin
-  tire (~> 0.5.4)
+  tire (~> 0.5.7)
   uglifier (~> 1.2.7)
   zurb-foundation!
