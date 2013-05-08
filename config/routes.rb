@@ -1,4 +1,3 @@
-
 Hackerhero::Application.routes.draw do
   #
   # Prototype, for development only
@@ -37,5 +36,11 @@ Hackerhero::Application.routes.draw do
   #
 
   resources :users
+
+  #
+  # Topics
+  #
+
+  get '/topics/search' => 'topics#search', as: 'topics_search'
 
 end
