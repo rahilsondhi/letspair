@@ -108,7 +108,16 @@ Pair.Views.Registration.Step1 = Backbone.Marionette.ItemView.extend
     Backbone.Validation.bind(@)
 
   onShow: ->
-    @$('.js-select2-tokens').select2 tags:[], tokenSeparators: [",", " "]
+    @ui.topic_ids.select2
+      minimumInputLength: 1
+      tags:[]
+      tokenSeparators: [",", " "]
+      ajax:
+        url: '/topics/search'
+        data: (term, page) -> return {q: term}
+        results: (data, page) -> return {results: data}
+      formatResult: (result) -> return result.title
+      formatSelection: (result) -> return result.title
 
   valid: ->
     @$('.js-error-list').remove()
