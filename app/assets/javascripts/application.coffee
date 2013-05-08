@@ -20,6 +20,7 @@ window.Pair = new Backbone.Marionette.Application()
 Pair.Models = {}
 Pair.Views = {}
 Pair.Views.Registration = {}
+Pair.Views.Needs = {}
 Pair.Routers = {}
 Pair.Controllers = {}
 Pair.Helpers = {}
@@ -100,10 +101,14 @@ Pair.Views.Registration.Step1 = Backbone.Marionette.ItemView.extend
     email: 'input[name="email"]'
     location: 'input[name="location"]'
     timezone: 'select[name="timezone"]'
+    topic_ids: 'input[name="topic_ids"]'
     actions: '.js-actions'
 
   onRender: ->
     Backbone.Validation.bind(@)
+
+  onShow: ->
+    @$('.js-select2-tokens').select2 tags:[], tokenSeparators: [",", " "]
 
   valid: ->
     @$('.js-error-list').remove()
@@ -129,8 +134,15 @@ Pair.Views.Registration.Step1 = Backbone.Marionette.ItemView.extend
       email: @ui.email.val()
       location: @ui.location.val()
       timezone: @ui.timezone.val()
+      topic_ids: @ui.topic_ids.val()
     @model.set(data)
     @model.sync('create', @model, {})
+
+Pair.Views.Needs.NewNeed = Backbone.Marionette.ItemView.extend
+  template: 'application/main/templates/views/needs/new_need'
+
+  onShow: ->
+    $('.js-select2-tokens').select2 tags:[], tokenSeparators: [",", " "]
 
 #
 # Controllers
@@ -143,9 +155,8 @@ Pair.Controllers.Registration = Marionette.Controller.extend
 
 Pair.Controllers.Needs = Marionette.Controller.extend
   newNeed: ->
-    console.log 'new need'
-    # newNeed = new Pair.Views.Needs.NewNeed
-    # Pair.globalContentContainer.show(newNeed)
+    newNeed = new Pair.Views.Needs.NewNeed
+    Pair.globalContentContainer.show(newNeed)
 
 #
 # Routers
