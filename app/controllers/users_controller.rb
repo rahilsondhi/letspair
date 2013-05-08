@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       name: params[:name],
       location: params[:location],
       dp: pending_user[:dp],
+      topic_ids: params[:topic_ids],
       timezone: params[:timezone],
       provider: pending_user[:provider],
       uid: pending_user[:uid],

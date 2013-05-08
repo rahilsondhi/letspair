@@ -20,7 +20,12 @@ class Registration
         }
       ]
     })
-    user.save
+
+    if user.save &&
+      topic_ids = attrs[:topic_ids].try(:split, ',')
+      user.topics << Topic.where(id: topic_ids)
+    end
+
     user
   end
 
