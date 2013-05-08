@@ -8,11 +8,11 @@ describe Registration do
     context 'when attrs is empty' do
       let(:attrs) { {} }
       it {
-        expect { subject }.not_to_change(User, :count)
+        expect { subject }.to_not change(User, :count)
       }
     end
 
-    context 'when attrs is complete', :focus do
+    context 'when attrs is complete' do
       let(:attrs) {
         {
           email: Faker::Internet.email,
@@ -21,10 +21,16 @@ describe Registration do
           location: Faker::Address.city,
           dp: Faker::Internet.url,
           provider: 'github',
+          topic_ids: topic_ids,
           uid: '123',
           token: '123',
           oauth_username: Faker::Internet.user_name
         }
+      }
+
+      let(:topic_ids) {
+        topics = 3.times { Fabricate :topic }
+        Topic.all.map &:id
       }
 
       it {
