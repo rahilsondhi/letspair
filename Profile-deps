@@ -1,2 +1,0 @@
-postgres: /usr/local/bin/postgres -D /Users/rahil/Sites/postgres
-memcached: memcached
