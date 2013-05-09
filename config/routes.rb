@@ -5,11 +5,8 @@ Hackerhero::Application.routes.draw do
 
   if Rails.env.development?
     %w[search request_to_pair sessions register1 register2 needs explore].each do |page|
-      get page => "prototype##{page}"
+      get "prototype/#{page}" => "prototype##{page}"
     end
-
-    # Aliases
-    get '/post-a-need' => 'prototype#register2'
   end
 
   #
@@ -42,5 +39,20 @@ Hackerhero::Application.routes.draw do
   #
 
   get '/topics/search' => 'topics#search', as: 'topics_search'
+
+  #
+  # Needs
+  #
+
+  resources :needs, only: [:create]
+
+  #
+  # Backbone routes
+  # These routes are defined in Backbone. User might refresh the page and Rails simply
+  # needs to render the application layout and let backbone takeover
+  #
+  ['/post-a-need'].each do |page|
+    get page => 'pages#app'
+  end
 
 end
