@@ -78,14 +78,15 @@ Pair.Models.User = Backbone.Model.extend
 
 Pair.Models.Need = Backbone.Model.extend
   url: '/needs'
+  defaults:
+    date_type: 'ongoing'
 
-  validations:
+  validation:
     topic_ids: [
       {required: true}
     ]
     description: [
       {required: true}
-      {minLength: 2}
     ]
 
 #
@@ -158,7 +159,7 @@ Pair.Views.Registration.Step1 = Backbone.Marionette.ItemView.extend
       timezone: @ui.timezone.val()
       topic_ids: @ui.topic_ids.val()
     @model.set(data)
-    @model.sync('create', @model, {})
+    if @model.isValid(true) then @model.sync('create', @model, {})
 
 Pair.Views.Needs.NewNeed = Backbone.Marionette.ItemView.extend
   template: 'application/main/templates/views/needs/new_need'
@@ -172,12 +173,14 @@ Pair.Views.Needs.NewNeed = Backbone.Marionette.ItemView.extend
     'sync' : 'success'
     'error' : 'error'
     'validated:valid' : 'valid'
+    'change:date_type' : 'dateTypeChanged'
 
   ui:
     actions: '.js-actions'
     topic_ids: 'input[name="topic_ids"]'
     needDateTypes: '[data-need-date-type]'
     description: '[name="description"]'
+    suggestedDates: '.js-suggested-dates'
     suggestedDate1: '[name="suggested-date-1"]'
     suggestedDate2: '[name="suggested-date-2"]'
     suggestedDate3: '[name="suggested-date-3"]'
@@ -227,20 +230,22 @@ Pair.Views.Needs.NewNeed = Backbone.Marionette.ItemView.extend
 
     # Mark this type as active
     $target = @$(e.currentTarget)
-    @date_type = $target.data 'need-date-type'
+    @model.set 'date_type', $target.data 'need-date-type'
     $target.addClass 'is-active'
+
+  dateTypeChanged: ->
+    @ui.suggestedDates.toggle @model.get('date_type') is 'specific'
 
   save: (e) ->
     e.preventDefault()
     data =
       topic_ids: @ui.topic_ids.val()
-      date_type: @date_type
       description: @ui.description.val()
-      suggestedDate1: @ui.suggestedDate1.val()
-      suggestedDate2: @ui.suggestedDate2.val()
-      suggestedDate3: @ui.suggestedDate3.val()
+      date_suggested_one: @ui.suggestedDate1.val()
+      date_suggested_two: @ui.suggestedDate2.val()
+      date_suggested_three: @ui.suggestedDate3.val()
     @model.set(data)
-    @model.sync('create', @model, {})
+    if @model.isValid(true) then @model.sync('create', @model, {})
 
 #
 # Controllers
