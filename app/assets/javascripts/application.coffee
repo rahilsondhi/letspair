@@ -76,6 +76,18 @@ Pair.Models.User = Backbone.Model.extend
     timezone:
       required: true
 
+Pair.Models.Need = Backbone.Model.extend
+  url: '/needs'
+
+  validations:
+    topic_ids: [
+      {required: true}
+    ]
+    description: [
+      {required: true}
+      {minLength: 2}
+    ]
+
 #
 # Views
 #
@@ -90,10 +102,10 @@ Pair.Views.Registration.Step1 = Backbone.Marionette.ItemView.extend
     'submit' : 'save'
 
   modelEvents:
+    'validated:valid' : 'valid'
     'sync:start' : 'loading'
     'sync' : 'success'
     'error' : 'error'
-    'validated:valid' : 'valid'
 
   ui:
     username: 'input[name="username"]'
@@ -108,16 +120,17 @@ Pair.Views.Registration.Step1 = Backbone.Marionette.ItemView.extend
     Backbone.Validation.bind(@)
 
   onShow: ->
+    # TODO: This should be abstracted out into something reusable
     @ui.topic_ids.select2
       minimumInputLength: 1
       tags:[]
       tokenSeparators: [",", " "]
       ajax:
         url: '/topics/search'
-        data: (term, page) -> return {q: term}
-        results: (data, page) -> return {results: data}
-      formatResult: (result) -> return result.title
-      formatSelection: (result) -> return result.title
+        data: (term, page) -> {q: term}
+        results: (data, page) -> {results: data}
+      formatResult: (result) -> result.title
+      formatSelection: (result) -> result.title
 
   valid: ->
     @$('.js-error-list').remove()
@@ -150,8 +163,84 @@ Pair.Views.Registration.Step1 = Backbone.Marionette.ItemView.extend
 Pair.Views.Needs.NewNeed = Backbone.Marionette.ItemView.extend
   template: 'application/main/templates/views/needs/new_need'
 
+  events:
+    'submit' : 'save'
+    'click [data-need-date-type]' : 'selectNeedDateType'
+
+  modelEvents:
+    'sync:start' : 'loading'
+    'sync' : 'success'
+    'error' : 'error'
+    'validated:valid' : 'valid'
+
+  ui:
+    actions: '.js-actions'
+    topic_ids: 'input[name="topic_ids"]'
+    needDateTypes: '[data-need-date-type]'
+    description: '[name="description"]'
+    suggestedDate1: '[name="suggested-date-1"]'
+    suggestedDate2: '[name="suggested-date-2"]'
+    suggestedDate3: '[name="suggested-date-3"]'
+
+  initialize: ->
+    @model = new Pair.Models.Need
+
+  onRender: ->
+    Backbone.Validation.bind(@)
+
   onShow: ->
-    $('.js-select2-tokens').select2 tags:[], tokenSeparators: [",", " "]
+    # TODO: This should be abstracted out into something reusable
+    @ui.topic_ids.select2
+      minimumInputLength: 1
+      tags:[]
+      tokenSeparators: [",", " "]
+      ajax:
+        url: '/topics/search'
+        data: (term, page) -> {q: term}
+        results: (data, page) -> {results: data}
+      formatResult: (result) -> result.title
+      formatSelection: (result) -> result.title
+
+    @$('[name^="suggested-date-"]').datepicker
+      showAnim: ''
+      minDate: 0
+
+  valid: ->
+    # TODO: Do validation for new need
+
+  loading: ->
+    # TODO: disable form submission
+    @ui.actions.spin lines: 8, length: 4, width: 3, radius: 5
+
+  error: ->
+    # TODO: Improve handling of server side error
+    @ui.actions.spin(false)
+
+  success: ->
+    # TODO: Move to /my-needs
+    @ui.actions.spin(false)
+    console.log "Success, move to /my-needs"
+
+  selectNeedDateType: (e) ->
+    # Remove is-active from all types
+    @ui.needDateTypes.removeClass 'is-active'
+
+    # Mark this type as active
+    $target = @$(e.currentTarget)
+    @date_type = $target.data 'need-date-type'
+    $target.addClass 'is-active'
+
+  save: (e) ->
+    e.preventDefault()
+    data =
+      topic_ids: @ui.topic_ids.val()
+      date_type: @date_type
+      description: @ui.description.val()
+      suggestedDate1: @ui.suggestedDate1.val()
+      suggestedDate2: @ui.suggestedDate2.val()
+      suggestedDate3: @ui.suggestedDate3.val()
+    @model.set(data)
+    @model.sync('create', @model, {})
 
 #
 # Controllers
