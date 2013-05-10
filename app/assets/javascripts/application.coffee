@@ -18,6 +18,7 @@
 
 window.Pair = new Backbone.Marionette.Application()
 Pair.Models = {}
+Pair.Collections = {}
 Pair.Views = {}
 Pair.Views.Registration = {}
 Pair.Views.Needs = {}
@@ -89,6 +90,10 @@ Pair.Models.Need = Backbone.Model.extend
       {required: true}
     ]
 
+Pair.Collections.Needs = Backbone.Collection.extend
+  model: Pair.Models.Need
+  url: '/needs'
+
 #
 # Views
 #
@@ -159,7 +164,7 @@ Pair.Views.Registration.Step1 = Backbone.Marionette.ItemView.extend
       timezone: @ui.timezone.val()
       topic_ids: @ui.topic_ids.val()
     @model.set(data)
-    if @model.isValid(true) then @model.sync('create', @model, {})
+    if @model.isValid(true) then @model.sync('create', @model, {}) # TODO: Shouldn't use .sync. Use .save instead
 
 Pair.Views.Needs.NewNeed = Backbone.Marionette.ItemView.extend
   template: 'application/main/templates/views/needs/new_need'
@@ -222,7 +227,7 @@ Pair.Views.Needs.NewNeed = Backbone.Marionette.ItemView.extend
   success: ->
     # TODO: Move to /my-needs
     @ui.actions.spin(false)
-    console.log "Success, move to /my-needs"
+    Pair.needsRouter.navigate '/my-needs', trigger: true
 
   selectNeedDateType: (e) ->
     # Remove is-active from all types
@@ -245,7 +250,16 @@ Pair.Views.Needs.NewNeed = Backbone.Marionette.ItemView.extend
       date_suggested_two: @ui.suggestedDate2.val()
       date_suggested_three: @ui.suggestedDate3.val()
     @model.set(data)
-    if @model.isValid(true) then @model.sync('create', @model, {})
+    if @model.isValid(true) then @model.sync('create', @model, {}) # TODO: Shouldn't use .sync. Use .save instead
+
+Pair.Views.Needs.Need = Backbone.Marionette.ItemView.extend
+  template: 'application/main/templates/views/needs/need'
+  className: 'row'
+
+Pair.Views.Needs.Index = Backbone.Marionette.CompositeView.extend
+  template: 'application/main/templates/views/needs/index'
+  itemView: Pair.Views.Needs.Need
+  itemViewContainer: '.needs-list'
 
 #
 # Controllers
@@ -261,6 +275,12 @@ Pair.Controllers.Needs = Marionette.Controller.extend
     newNeed = new Pair.Views.Needs.NewNeed
     Pair.globalContentContainer.show(newNeed)
 
+  index: ->
+    needs = new Pair.Collections.Needs
+    needs.fetch() # TODO: Should this .fetch() be here?
+    indexView = new Pair.Views.Needs.Index collection: needs
+    Pair.globalContentContainer.show(indexView)
+
 #
 # Routers
 #
@@ -273,7 +293,8 @@ Pair.Routers.Registration = Backbone.Marionette.AppRouter.extend
 Pair.Routers.Needs = Backbone.Marionette.AppRouter.extend
   controller: new Pair.Controllers.Needs
   appRoutes:
-    'post-a-need': 'newNeed'
+    'post-a-need' : 'newNeed'
+    'my-needs' : 'index'
 
 #
 # In the base file

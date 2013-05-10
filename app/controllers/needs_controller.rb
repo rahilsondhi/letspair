@@ -2,6 +2,10 @@ class NeedsController < ApplicationController
   before_filter :ensure_logged_in
   respond_to :json
 
+  def index
+    respond_with current_user.needs # TODO: Use rabl here
+  end
+
   def create
     attrs = {
       date_type: params[:date_type],

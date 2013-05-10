@@ -44,14 +44,14 @@ Hackerhero::Application.routes.draw do
   # Needs
   #
 
-  resources :needs, only: [:create]
+  resources :needs, only: [:create, :index]
 
   #
   # Backbone routes
   # These routes are defined in Backbone. User might refresh the page and Rails simply
   # needs to render the application layout and let backbone takeover
   #
-  ['/post-a-need'].each do |page|
+  ['/post-a-need', '/my-needs'].each do |page|
     get page => 'pages#app'
   end
 
