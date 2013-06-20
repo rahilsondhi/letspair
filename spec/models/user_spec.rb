@@ -2,12 +2,11 @@ require 'spec_helper'
 
 describe User do
   it { should validate_presence_of(:email) }
-  it { should validate_format_of(:email).with('john@gmail.com') }
-  it { should validate_format_of(:email).not_with('asdf') }
+  it { should allow_value('john@gmail.com').for(:email) }
+  it { should_not allow_value('asdf', 'asdggmail.com', '@gmail.com').for(:email) }
   it { should validate_presence_of(:username) }
   it { should validate_presence_of(:name) }
   it { should ensure_length_of(:name).is_at_most(255) }
-  it { should validate_presence_of(:timezone) }
 
   describe 'username validations' do
     subject { Fabricate.build(:user) }
@@ -22,4 +21,5 @@ describe User do
   it { should have_many(:partnered_sessions).class_name('Session') }
   it { should have_many(:needs) }
   it { should have_and_belong_to_many(:topics) }
+  it { should accept_nested_attributes_for(:credentials) }
 end

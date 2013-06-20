@@ -1,0 +1,44 @@
+<h2 class="prepend-4 text-center">Need help with something?</h2>
+
+<div class="row">
+  <form>
+    <div class="large-8 columns large-centered">
+      <div class="js-error-list-container"></div>
+
+      <h3 class="subheader text-center">What do you need help with?</h3>
+      <input name="topic_ids" type="text" class="large-12 small-12 js-select2-tokens" />
+
+      <h3 class="subheader text-center prepend-4">When do you need help?</h3>
+      <div class="need-date-types">
+        <div class="need-date-type is-active" data-need-date-type="ongoing">
+          <p class="need-date-type-text">Any time/ongoing</p>
+          <p class="need-date-type-icon"><i class="icon-refresh"></i></p>
+        </div>
+
+        <div class="need-date-type" data-need-date-type="specific">
+          <p class="need-date-type-text">Specific time</p>
+          <p class="need-date-type-icon"><i class="icon-time"></i></p>
+        </div>
+
+        <div class="need-date-type" data-need-date-type="now">
+          <p class="need-date-type-text">Right now</p>
+          <p class="need-date-type-icon"><i class="icon-warning-sign"></i></p>
+        </div>
+      </div>
+
+      <div class="hide js-suggested-dates">
+        <h3 class="subheader text-center prepend-4">Suggest 3 times</h3>
+        <input type="text" name="suggested-date-1" />
+        <input type="text" name="suggested-date-2" />
+        <input type="text" name="suggested-date-3" />
+      </div>
+
+      <h3 class="subheader text-center prepend-4">Any details?</h3>
+      <textarea class="textarea-medium" name="description"></textarea>
+
+      <p class="text-center js-actions">
+        <input type="submit" class="button prepend-2" value="Submit">
+      </p>
+    </div>
+  </form>
+</div>

@@ -12,6 +12,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.infer_base_class_for_anonymous_controllers = false
   config.order = "random"
+  config.include Helpers
 
   # From RailsCast #413
   # http://railscasts.com/episodes/413-fast-tests
@@ -20,18 +21,13 @@ RSpec.configure do |config|
 
   # DatabaseCleaner
   # https://github.com/bmabey/database_cleaner
+  # Disabled for now to increase speed. Not sure if I really need this.
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.after(:each) do
-    DatabaseCleaner.clean
-  end
+  config.before(:each) { DatabaseCleaner.start }
+  config.after(:each) { DatabaseCleaner.clean }
 end
 
 # Fabrication

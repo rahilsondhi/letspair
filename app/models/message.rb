@@ -32,15 +32,6 @@ class Message < ActiveRecord::Base
   # Validations
   #
 
-  validates :author_id,
-            presence: true
-
-  validates :recipient_id,
-            presence: true
-
-  validates :session_id,
-            presence: true
-
   validates :body,
             presence: true
 

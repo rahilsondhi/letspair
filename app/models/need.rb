@@ -36,9 +36,6 @@ class Need < ActiveRecord::Base
   # Validations
   #
 
-  validates :user_id,
-            presence: true
-
   validates :date_type,
             presence: true,
             inclusion: { in: VALID_DATE_TYPES }

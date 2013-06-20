@@ -18,3 +18,4 @@ config/database.yml
 *.sublime-*
 app/assets/stylesheets/config.rb
 app/assets/stylesheets/*/config.rb
+.pry_history

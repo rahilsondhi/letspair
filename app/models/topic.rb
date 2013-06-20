@@ -14,6 +14,13 @@
 
 class Topic < ActiveRecord::Base
   #
+  # Modules
+  #
+
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+
+  #
   # Associations
   #
 
@@ -31,11 +38,26 @@ class Topic < ActiveRecord::Base
             length: { maximum: 255 }
 
   validates :github_id,
-            uniqueness: true
+            uniqueness: true,
+            allow_blank: true
+
+  #
+  # Callbacks
+  #
+
+  after_touch { update_index }
 
   #
   # Misc
   #
 
   attr_accessible :github_id, :github_name, :github_owner, :language, :name
+
+  #
+  # Search
+  #
+
+  mapping do
+    indexes :name
+  end
 end

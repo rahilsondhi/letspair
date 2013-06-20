@@ -11,6 +11,7 @@
 #  timezone    :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  dp          :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -19,7 +20,8 @@ class User < ActiveRecord::Base
   #
 
   has_many  :credentials,
-            inverse_of: :user
+            inverse_of: :user,
+            dependent: :destroy
 
   has_many  :authored_messages,
             class_name: 'Message',
@@ -52,7 +54,7 @@ class User < ActiveRecord::Base
 
   validates :username,
             presence: true,
-            format: { with: /\A[a-z0-9A-Z]+((\.|_)[a-z0-9A-Z]+)*/ },
+            format: { with: /^[a-zA-Z0-9_]*$/ }, # Can only contain letters, numbers, and underscores.
             length: { maximum: 40 },
             uniqueness: { case_sensitive: false },
             exclusion:  {
@@ -64,12 +66,10 @@ class User < ActiveRecord::Base
             presence: true,
             length: { maximum: 255 }
 
-  validates :timezone,
-            presence: true
-
   #
   # Misc
   #
 
-  attr_accessible :email, :last_online, :location, :name, :timezone, :username
+  attr_accessible :email, :last_online, :location, :name, :timezone, :username, :dp, :credentials_attributes
+  accepts_nested_attributes_for :credentials
 end
