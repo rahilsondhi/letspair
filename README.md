@@ -1,9 +1,9 @@
-HackerHero
+LetsPair
 ====
 
-Setting up HackerHero on your development environment
+Setting up LetsPair on your development environment
 ----
-1. `rvm --rvmrc --create ruby-1.9.3-p194@hackerhero`. You'll need to restart your shell. Do `rvm gemdir` and it should say `/Users/username/.rvm/gems/ruby-1.9.3-p194@hackerhero`
+1. `rvm --rvmrc --create ruby-1.9.3-p194@letspair`. You'll need to restart your shell. Do `rvm gemdir` and it should say `/Users/username/.rvm/gems/ruby-1.9.3-p194@letspair`
 2. `bundle`
 3. Make a new `Procfile-dev` with:
 
